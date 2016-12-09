@@ -31,7 +31,7 @@ var UserService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Token', localStorage.getItem('AccessToken'));
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* RequestOptions */]({ headers: headers });
-        return this.http.get('http://rating.incode-it.com/apipersonal/current', options)
+        return this.http.get('http://rating.incode-it.com/api/personal/current', options)
             .toPromise()
             .then(function (res) {
             return res;
@@ -48,7 +48,7 @@ var UserService = (function () {
             Password: password
         };
         return this.http
-            .post('http://rating.incode-it.com/apiregistration', body)
+            .post('http://rating.incode-it.com/api/registration', body)
             .toPromise()
             .catch(function (err) {
             console.log(err);
@@ -62,7 +62,7 @@ var UserService = (function () {
             Password: password
         };
         return this.http
-            .post('http://rating.incode-it.com/apilogin', body)
+            .post('http://rating.incode-it.com/api/login', body)
             .toPromise()
             .then(function (res) {
             localStorage.setItem('AccessToken', res.json().AccessToken);
@@ -91,7 +91,7 @@ var UserService = (function () {
             headers: headers,
             search: params
         });
-        return this.http.post('http://rating.incode-it.com/apiSocialNetwork', {}, options)
+        return this.http.post('http://rating.incode-it.com/api/SocialNetwork', {}, options)
             .toPromise()
             .then(function (res) {
             return res;
@@ -110,7 +110,7 @@ var UserService = (function () {
             headers: headers,
             search: params
         });
-        return this.http.put('http://rating.incode-it.com/apiSocialNetwork', {}, options)
+        return this.http.put('http://rating.incode-it.com/api/SocialNetwork', {}, options)
             .toPromise()
             .then(function (res) {
             return res;
